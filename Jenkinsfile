@@ -1,28 +1,30 @@
 pipeline {
-	agent any
-	stages{
-	   stage ("SCM Clone repo"){
-	       steps{
-	         echo " clone repo"
-	       }
-	   }
+    agent any
 
-	   stage "Build"{
-	       steps{
-	        echo " Build"
-	       }
-	   }
+    stages {
+        stage("SCM Clone repo") {
+            steps {
+                echo "clone repo"
+            }
+        }
 
-	   stage "test"{
-	       steps{
-	            echo "test"
-	       }
-	   }
+        stage "Build" {
+            steps {
+                echo "Build"
+            }
+        }
 
-	   stage "Deploy the repo"{
-	       steps {
-	       echo "deploy "
-	       }
-	       }
-	}
+        stage "test" {
+            steps {
+                echo "test"
+            }
+        }
+
+        stage "Deploy the repo" {
+            steps {
+                echo "deploy"
+            }
+        }
+    }
 }
+
