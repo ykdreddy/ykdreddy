@@ -1,29 +1,17 @@
 pipeline {
     agent any
-
     stages {
-        stage("SCM Clone repo") {
+        stage("SCM clone") {
             steps {
-                echo "clone repo"
+                echo "clone"
             }
         }
-
-        stage("Build") {
+        stage("Ansible deployment") {
             steps {
-                echo "Build"
-            }
-        }
-
-        stage("Test") {
-            steps {
-                echo "Test"
-            }
-        }
-
-        stage("Deploy the repo") {
-            steps {
-                echo "Deploy"
+                ansiblePlaybook installation: 'Ansible', inventory: 'inventory', playbook: 'apache2.yaml'
             }
         }
     }
 }
+
+
