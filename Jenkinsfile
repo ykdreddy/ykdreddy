@@ -8,7 +8,9 @@ pipeline {
         }
         stage("Ansible deployment") {
             steps {
-                ansiblePlaybook credentialsId: 'ansiblekey', installation: 'Ansible', playbook: 'apache2', inventory: 'inventory'
+                sh "/usr/bin/ansible-playbook /var/lib/jenkins/workspace/ansible-deployment/apache2 -i /var/lib/jenkins/workspace/ansible-deployment/inventory 
+--private-key /var/lib/jenkins/workspace/ansible-deployment/ssh15744373199136696758.key -u ubuntu"
+
             }
         }
     }
