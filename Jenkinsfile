@@ -8,7 +8,7 @@ pipeline {
         }
         stage("Ansible deployment") {
             steps {
-                sh "/usr/bin/ansible-playbook /var/lib/jenkins/workspace/ansible-deployment/apache2.yaml -i /var/lib/jenkins/workspace/ansible-deployment/inventory"
+                ansiblePlaybook credentialsId: 'ansiblekey', installation: 'Ansible', playbook: 'apache2', inventory: 'inventory'
             }
         }
     }
