@@ -8,7 +8,10 @@ pipeline {
         }
         stage("Ansible deployment") {
             steps {
-               ansiblePlaybook credentialsId: 'Ansible', installation: 'Ansible', playbook: './apache2', inventory: './inventory'
+             echo "Executing command: /usr/bin/ansible/ansible-playbook ./apache2 -i ./inventory --private-key 
+/var/lib/jenkins/workspace/ansible-deployment/ssh16448858192613577823.key -u ubuntu"
+sh "/usr/bin/ansible/ansible-playbook ./apache2 -i ./inventory --private-key /var/lib/jenkins/workspace/ansible-deployment/ssh16448858192613577823.key -u ubuntu"
+
 
             }
         }
