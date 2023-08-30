@@ -8,7 +8,7 @@ pipeline {
         }
         stage("Ansible deployment") {
             steps {
-                sh 'ansible-playbook nginx.yaml -i inventory'
+                sh 'ansible-playbook nginx.yaml -i inventory --user jenkins --key-file ~/.ssh/id_rsa'
             }
         }
     }
