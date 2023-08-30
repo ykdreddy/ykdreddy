@@ -8,7 +8,7 @@ pipeline {
         }
         stage("Ansible deployment") {
             steps {
-                ansiblePlaybook playbook: 'apache.yaml', inventory: 'myfile'
+                sh 'ansible-playbook nginx.yaml -i inventory'
             }
         }
     }

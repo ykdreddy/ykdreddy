@@ -1,16 +1,16 @@
 ---
-- name: install apache software
+- name: install tool on the webserver
   hosts: servers
   become: yes
   tasks:
-   - name: install apache software
+   - name: install tool on the websever
      apt:
-       name: apache2
+       name: nginx
        state: present
-       
-   - name: start apache server start
+
+   - name: service start
      service:
-       name: apache2
+       name: nginx
        state: started
 
    - name: Deploy the static website
