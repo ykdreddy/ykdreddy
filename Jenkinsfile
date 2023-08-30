@@ -8,10 +8,10 @@ pipeline {
         }
         stage("Ansible deployment") {
             steps {
-                ansiblePlaybook credentialsId: 'ansiblekey',
+                ansiblePlaybook credentialsId: 'jenkins',
                                 installation: 'Ansible',
                                 playbook: 'apache2',
-                                inventory: './inventory',
+                                inventory: 'inventory',
                                 extras: "--private-key /home/ubuntu/.ssh/id_rsa.pub -u ubuntu"
             }
         }
