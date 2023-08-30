@@ -8,10 +8,10 @@ pipeline {
         }
         stage("Ansible deployment") {
             steps {
-                           ansiblePlaybook installation: 'Ansible',
-                                playbook: 'apache.yaml',
-                                inventory: 'inventory',
-                            }
+                ansiblePlaybook installation: 'Ansible',
+                    playbook: 'apache.yaml',
+                    inventory: 'inventory'
+            }
         }
     }
 }
