@@ -1,6 +1,6 @@
 ---
 - name: install apache software
-  hosts: webserver
+  hosts: servers
   become: yes
   tasks:
    - name: install apache software
