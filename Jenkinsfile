@@ -10,8 +10,8 @@ pipeline {
             steps {
                 ansiblePlaybook credentialsId: 'ubuntu',
                                 installation: 'Ansible',
-                                playbook: 'apache.yml',
-                                inventory: './inventory',
+                                playbook: 'apache.yaml',
+                                inventory: 'inventory',
                                 extras: "--private-key /home/ubuntu/.ssh/id_rsa.pub -u ubuntu"
             }
         }
