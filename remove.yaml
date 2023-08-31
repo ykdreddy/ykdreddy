@@ -1,9 +1,9 @@
 ---
-- name: remove tool on the webserver
+- name: remove tool on the server
   hosts: servers
   become: yes
   tasks:
-   - name: remove tool on the servers
+   - name: nginx service stopped
      service:
         name: nginx
         state: stopped
