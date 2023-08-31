@@ -21,12 +21,11 @@
      copy:
        src: index.html
        dest: /var/www/html/index.html
-     tags:
-      - copy
+       notify: 
+         - nginx
   
-   - name: Restart the service
-     service:
-       name: nginx
-       state: restarted
-     tags:
-       - always
+  handlers:
+    - name: Restart the nginx
+      service:
+        name: nginx
+        state: restarted
