@@ -1,0 +1,15 @@
+---
+- name: remove tool on the webserver
+  hosts: servers
+  become: yes
+  tasks:
+   - name: remove tool on the servers
+     service:
+        name: nginx
+        state: stopped
+
+   - name: remove tool on the websever
+     apt:
+       name: nginx
+       state: absent
+
