@@ -8,8 +8,7 @@ pipeline {
         }
         stage("Ansible deployment") {
             steps {
-                sh 'ansible-playbook remove.yaml -i inventory --user 
-jenkins --key-file ~/.ssh/id_rsa'
+                sh 'ansible-playbook remove.yaml -i inventory --user jenkins --key-file ~/.ssh/id_rsa'
             }
         }
     }
