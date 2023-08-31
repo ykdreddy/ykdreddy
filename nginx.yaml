@@ -7,14 +7,26 @@
      apt:
        name: nginx
        state: present
+     tags:
+      - installedngnix
 
    - name: service start
      service:
        name: nginx
        state: started
+     tags:
+      - startnginx
 
    - name: Deploy the static website
      copy:
        src: index.html
        dest: /var/www/html/index.html
- 
+     tags:
+      - copy
+  
+   - name: Restart the service
+     service:
+       name: nginx
+       state: restarted
+     tags:
+       - always
